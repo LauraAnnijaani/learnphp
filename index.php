@@ -14,6 +14,7 @@ class Box {
     }
 
     public function __construct($height=0, $width=0, $length=0) {
+        self::$count++;
         $this->height = $height;
         $this->width = $width;
         $this->length = $length;
