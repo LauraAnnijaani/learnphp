@@ -19,6 +19,7 @@ class Box {
         $this->width = $width;
         $this->length = $length;
     }
+
     public function test(){
         var_dump($this->length);
     }
@@ -32,6 +33,36 @@ class Box {
 
     public function volume(){
         return $this->height * $this->width * $this->length;
+    }
+
+    public function __toString() {
+        return 'Im a Box!';
+    }
+
+    public function __destruct()
+    {
+        var_dump('Object was destroyed!');
+    }
+
+    public function __get($name){
+        var_dump("Trying to get $name");
+        return 'Some cool value';
+    }
+
+    public function __set($name, $value){
+        var_dump("Trying to set $name with value $value");
+    }
+
+    public function __call($name, $args){
+        var_dump("Trying to call function $name with values", $args);
+    }
+
+    public static function __callStatic($name, $args){
+        var_dump("Trying to call function $name with values", $args);
+    }
+
+    public function __invoke(...$args){
+        var_dump('I was called as function with args', $args);
     }
 }
 
@@ -53,16 +84,16 @@ class IronBox extends MetalBox {
     public $weightPerUnit = 3;
 }
 
-
-Box::$count = 1;
-var_dump(Box::$count);
-
-Box::$count = 2;
-var_dump(Box::$count);
-
-var_dump(Box::$count);
-var_dump(MetalBox::$count);
-var_dump(Box::class);
-Box::cool();
-
-MetalBox::cool();
+function makeBox(){
+    $box1 = new Box();
+    var_dump($box1->potato);
+    var_dump($box1->tomato);
+    $box1->kakajunn = 123;
+    $box1->hello(1, 2, 3);
+    $box1(1, 3, 4, 5);
+    echo $box1;
+}
+makeBox();
+// unset($box1);
+$box1 = 1;
+var_dump('End of program');
