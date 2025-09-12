@@ -3,14 +3,16 @@
 class Box {
     public $height = 0;
     private $width = 0;
-    public $length = 0;
+    protected $length = 0;
 
     public function __construct($height=0, $width=0, $length=0) {
         $this->height = $height;
         $this->width = $width;
         $this->length = $length;
     }
-
+    public function test(){
+        var_dump($this->length);
+    }
     public function setWidth($width){
         if(is_numeric($width) && $width > 0){
             $this->width = $width;
@@ -27,6 +29,10 @@ class Box {
 class MetalBox extends Box {
     public $material = 'Metal';
     public $weightPerUnit = 2;
+
+    public function test(){
+        var_dump($this->length);
+    }
 
     public function mass(){
         return $this->volume() * $this->weightPerUnit;
