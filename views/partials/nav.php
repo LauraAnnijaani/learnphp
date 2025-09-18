@@ -1,4 +1,3 @@
-<?php include __DIR__ . 'partials/header.php'; ?>
 <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
       <symbol
         id="aperture"
