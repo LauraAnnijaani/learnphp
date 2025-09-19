@@ -1,5 +1,6 @@
 <?php
 
+use App\Controllers\ArticleController;
 use App\Controllers\PublicController;
 use App\Router;
 
@@ -10,5 +11,6 @@ Router::get('/us', [PublicController::class, 'us']);
 Router::get('/technology', [PublicController::class, 'technology']);
 
 Router::get('/form', [PublicController::class, 'form']);
-
 Router::post('/answer', [PublicController::class, 'answer']);
+
+Router::get('/articles', [ArticleController::class, 'index']);
