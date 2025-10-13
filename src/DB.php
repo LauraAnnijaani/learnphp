@@ -5,7 +5,7 @@ namespace App;
 use PDO;
 use PDOException;
 
-class DB{
+class DB {
     private $conn;
 
     public function __construct(){
@@ -45,16 +45,17 @@ class DB{
         return $stmt->fetchAll();
     }
 
-    public function insert($table, $fields) {
+     public function insert($table, $fields)
+    {
         $fieldNames = array_keys($fields);
         $fieldNamesText = implode(', ', $fieldNames);
         $fieldValuesText = implode("', '", $fields);
 
         $sql = "INSERT INTO $table ($fieldNamesText)
-                VALUES ('$fieldNamesText')";
+                VALUES ('$fieldValuesText')";
         // use exec() because no results are returned
 
-       $this->conn->exec($sql);
+        $this->conn->exec($sql);
     }
 
     public function update($table, $fields, $id) {
@@ -63,7 +64,7 @@ class DB{
             $updateText .= "$name='$value',";
         }
         $updateText = substr($updateText, 0, -1);
-        dump($updateText);
+
         $sql = "UPDATE $table SET $updateText WHERE id=$id";
 
         // Prepare statement

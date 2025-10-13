@@ -22,7 +22,7 @@ class ArticleController
         do {
             $name = md5($_FILES['image']['name']. microtime() . rand(PHP_INT_MIN, PHP_INT_MAX));
             $name .= '.' . pathinfo($_FILES['image']['name'], PATHINFO_EXTENSION);
-            $filename =  __DIR__ . '/../../public/uploads/' . $_FILES['image']['name'];
+            $filename =  __DIR__ . '/../../public/uploads/' . $name;
         } while (file_exists($filename));
 
         move_uploaded_file($_FILES['image']['tmp_name'], $filename);
@@ -30,7 +30,7 @@ class ArticleController
         $article->title = $_POST['title'];
         $article->body = $_POST['body'];
         $article->save();
-        header('location: /articles');
+        header('Location: /articles');
     }
 
     public function view() {
@@ -48,12 +48,12 @@ class ArticleController
         $article->title = $_POST['title'];
         $article->body = $_POST['body'];
         $article->save();
-        header('location: /articles');
+        header('Location: /articles');
     }
 
     public function destroy() {
         $article = Article::find($_GET['id']);
         $article->delete();
-        header('location: /articles');
+        header('Location: /articles');
     }
 }
