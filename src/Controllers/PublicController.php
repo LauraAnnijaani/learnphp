@@ -3,8 +3,6 @@
 namespace App\Controllers;
 
 
-
-
 class PublicController {
     public function index(){
         $title = 'World news';

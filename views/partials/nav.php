@@ -54,7 +54,7 @@
         <?php if (auth()): ?>
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <?=auth()->email?>
+              <?= auth()->email ?>
             </button>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="/logout">Logout</a></li>
@@ -70,7 +70,7 @@
   <div class="nav-scroller py-1 mb-3 border-bottom">
     <nav class="nav nav-underline justify-content-between">
       <a class="nav-item nav-link link-body-emphasis active" href="/">World</a>
-      <a class="nav-item nav-link link-body-emphasis" href="/us">U.S</a>
+      <a class="nav-item nav-link link-body-emphasis" href="/us">U.S.</a>
       <a class="nav-item nav-link link-body-emphasis" href="/technology">Technology</a>
       <a class="nav-item nav-link link-body-emphasis" href="/form">Form</a>
       <a class="nav-item nav-link link-body-emphasis" href="/articles">Articles</a>
