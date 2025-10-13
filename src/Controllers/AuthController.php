@@ -28,16 +28,21 @@ class AuthController {
     public function login() {
         dump($_POST);
         $user = User::where('email', $_POST['email']);
+           // if(isset($user[0])) {
+        //     $user = $user[0];
+        // } else {
+        //     $user = null;
+        // }
         $user = $user[0] ?? null;
         if(!$user || !password_verify($_POST['password'], $user->password)) {
-            return header('Location: /login');
+           return header('Location: /login');
         }
         $_SESSION['userID'] = $user->id;
         header('Location: /');
     }
 
     public function logout() {
-        unset ($_SESSION['userID']);
+        unset($_SESSION['userID']);
         header('Location: /');
     }
 }
